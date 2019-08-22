@@ -39,6 +39,9 @@ let config = {
     'text': null,
     'background': 'green'
   },
+  'remote': {
+    'command': null
+  },
   'session': {
     'name': 'WebSSH2',
     'secret': 'mysecret'
@@ -145,6 +148,7 @@ app.get('/ssh/host/:host?', function (req, res, next) {
       name: req.query.header || config.header.text,
       background: req.query.headerBackground || config.header.background
     },
+    remote: req.query.command || config.remote.command,
     algorithms: config.algorithms,
     keepaliveInterval: config.ssh.keepaliveInterval,
     keepaliveCountMax: config.ssh.keepaliveCountMax,
