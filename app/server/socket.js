@@ -40,6 +40,7 @@ module.exports = function socket (socket) {
     socket.emit('title', 'ssh://' + socket.request.session.ssh.host)
     if (socket.request.session.ssh.header.background) socket.emit('headerBackground', socket.request.session.ssh.header.background)
     if (socket.request.session.ssh.header.name) socket.emit('header', socket.request.session.ssh.header.name)
+    if (socket.request.session.ssh.remote) socket.emit('command', socket.request.session.ssh.remote)
     socket.emit('footer', 'ssh://' + socket.request.session.username + '@' + socket.request.session.ssh.host + ':' + socket.request.session.ssh.port)
     socket.emit('status', 'SSH CONNECTION ESTABLISHED')
     socket.emit('statusBackground', 'green')
@@ -53,6 +54,10 @@ module.exports = function socket (socket) {
         SSHerror('EXEC ERROR' + err)
         conn.end()
         return
+      }
+      if (socket.request.session.ssh.remote) {
+        console.log('Writing command to stream')
+        stream.write(socket.request.session.ssh.remote + '\n')
       }
       // poc to log commands from client
       if (socket.request.session.ssh.serverlog.client) var dataBuffer
