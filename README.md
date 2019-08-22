@@ -116,7 +116,7 @@ docker run --name webssh2 -d -p 2222:2222 webssh2
 
 * **header.background** - _string_ - Header background, defaults to `green`.
 
-* **remote.command** - _string_ - Remote command to be ran on successful connection.
+* **remote** - _string_ - Remote command to be ran on successful connection.
 
 * **session.name** - _string_ - Name of session ID cookie. it's not a horrible idea to make this something unique.
 
