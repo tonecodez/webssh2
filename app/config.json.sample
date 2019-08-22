@@ -25,6 +25,9 @@
     "text": null,
     "background": "green"
   },
+  "remote": {
+    "command" null
+  }
   "session": {
     "name": "WebSSH2",
     "secret": "mysecret"
