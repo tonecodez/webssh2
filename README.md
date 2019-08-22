@@ -63,6 +63,8 @@ docker run --name webssh2 -d -p 2222:2222 webssh2
 
 * **headerBackground=** - _string_ - optional background color of header to display on page
 
+* **command=** - _string_ - remote command to be ran on successful connection.
+
 * **readyTimeout=** - _integer_ - How long (in milliseconds) to wait for the SSH handshake to complete. **Default:** 20000. **Enforced Values:** Min: 1, Max: 300000
 
 * **cursorBlink** - _boolean_ - Cursor blinks (true), does not (false) **Default:** true.
@@ -113,6 +115,8 @@ docker run --name webssh2 -d -p 2222:2222 webssh2
 * **header.text** - _string_ - Specify header text, defaults to `My Header` but may also be set to `null`. When set to `null` no header bar will be displayed on the client.
 
 * **header.background** - _string_ - Header background, defaults to `green`.
+
+* **remote.command** - _string_ - Remote command to be ran on successful connection.
 
 * **session.name** - _string_ - Name of session ID cookie. it's not a horrible idea to make this something unique.
 
